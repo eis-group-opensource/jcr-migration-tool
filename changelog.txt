@@ -1,0 +1,8 @@
+Changes in 1.0.16:
+
+* EISISSUE-50186 - time format updated for Export
+
+
+Changes in 1.0.15:
+
+* EISISSUE-50358 - added file name encoding when importing file

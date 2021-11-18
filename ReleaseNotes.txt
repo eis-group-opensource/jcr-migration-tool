@@ -1,0 +1,9 @@
+Release Notes
+1.0.12 made populating the NODE_TYPE value in the DOC_NODE_EVENT. The released version may be used if liquibase changeset have been ran up-to 8.5 inclusive.
+1.0.10 EISDEV-82021 added contentId
+1.0.8 disabling/enabling indexes and constrains on oracle
+1.0.7 disabling/enabling indexes on import
+1.0.6 logging added
+1.0.5 disabling/enabling constraints, changing from Migrate to Export + Import, Export.Fetch size 100000 
+1.0.4 UUID changed to counter, "selectMethod=cursor" added to dbUrl.
+

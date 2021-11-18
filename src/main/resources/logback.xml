@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration  scan="true" scanPeriod="60 seconds">
+  <contextName>jcr-migration-tool</contextName>
+   
+  <appender name="Console" class="ch.qos.logback.core.ConsoleAppender">
+	<filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+	  <level>DEBUG</level>
+	</filter>
+    <encoder>
+      <pattern>%d{HH:mm:ss.SSS} %5p [%t] [%c{30}]: %m%n</pattern>
+    </encoder>
+  </appender>
+  
+  <appender name="File" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <!--See also http://logback.qos.ch/manual/appenders.html#RollingFileAppender-->
+	<filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+	  <level>DEBUG</level>
+	</filter>
+    <File>jcr-migration.log</File>
+    <encoder>
+      <pattern>%d{HH:mm:ss.SSS} %5p [%t] [%c{50}]: %m%n</pattern>
+    </encoder>
+    <rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
+      <maxIndex>1</maxIndex>
+      <FileNamePattern>jcr-migration.%i.log</FileNamePattern>
+    </rollingPolicy>
+    <triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+      <MaxFileSize>100KB</MaxFileSize>
+    </triggeringPolicy>
+  </appender>
+  
+
+  <logger name="com.exigen.eis.jcr.Export" level="DEBUG"/>
+  <logger name="com.exigen.eis.jcr.Import" level="DEBUG"/>
+  <logger name="com.exigen.eis.jcr.Migrate" level="DEBUG"/>
+  
+  <root level="DEBUG">
+    <appender-ref ref="Console"/>
+    <appender-ref ref="File"/>
+  </root>
+</configuration>
